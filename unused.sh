@@ -4,6 +4,13 @@ EXT='php'
 DIR='.'
 OMIT=''
 REV="0"
+
+usage ()
+{
+  echo 'Usage :  -d <directory> -e <file extension> -o <omit files> -r <show revision history>'
+  exit
+}
+
 while getopts ":d:e:o:r" opt
    do
      case $opt in
@@ -11,6 +18,9 @@ while getopts ":d:e:o:r" opt
         e ) EXT=$OPTARG;;
         o ) OMIT=$OPTARG;;
         r ) REV="1";;
+        h)  usage;;
+        help ) usage;;
+        * ) usage;;
      esac
 done
 
